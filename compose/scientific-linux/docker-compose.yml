@@ -1,0 +1,59 @@
+version: '2'
+volumes:
+  postgres-data: {}
+  shuttle-data: {}
+services:
+  shuttle:
+    image: konvergence/shuttle:4.8.1.29276.24-sl
+    depends_on: [postgres]
+    ports:
+    - 8080:8080
+    environment:
+      DB_HOST: postgres
+      DB_PORT: '5432'
+      DB_SHUTTLE_PASSWORD: password
+      DB_SHUTTLE_REPO: SHUT_REPO
+      DB_SHUTTLE_USER: shuttle
+      DB_SYSTEM_PASSWORD: YourPostgresSecretPassword
+      DB_SYSTEM_USER: postgres
+      DB_TYPE: postgres
+      EXTERNAL_URL_PORT: '8080'
+      EXTERNAL_URL_PROTOCOL: http
+      EXTERNAL_URL_SERVER:  
+      LICENSEKEY: 'KEY=changeit'
+      WEBAPP_NAME: Shuttles
+    stdin_open: true
+    volumes:
+    - shuttle-data:/data
+    tty: true
+    command:
+    - --run
+    labels:
+      io.rancher.scheduler.affinity:container_label: io.rancher.stack_service.name=$${stack_name}/postgres
+  postgres:
+    image: postgres:9.5.13
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_PASSWORD: YourPostgresSecretPassword
+      POSTGRES_USER: postgres
+    stdin_open: true
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+    tty: true
+  tailon:
+    image: konvergence/tailon:1.2.1
+    depends_on: [shuttle]
+    environment:
+      OPTIONS: --relative-root /Shuttles.Tailon/ --allow-transfers --follow-names --tail-lines 1000
+    stdin_open: true
+    volumes:
+    - shuttle-data:/data
+    tty: true
+    command:
+    - /data/shuttle/home/logs/
+    - /data/shuttle/home/logs/perf/
+    - /data/shuttle/home/logs/audit/
+    - /data/shuttle/instance/logs/
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label: io.rancher.stack_service.name=$${stack_name}/shuttle

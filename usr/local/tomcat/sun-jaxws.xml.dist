@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+    <endpoint implementation="com.nellarmonia.shuttle.service.ShuttleService" name="ShuttleUser" url-pattern="/Core.User"/>
+    <endpoint implementation="com.nellarmonia.shuttle.service.ShuttleCommentsService" name="ShuttleComments" url-pattern="/Comments"/>
+    <endpoint implementation="com.nellarmonia.shuttle.service.ShuttleNotificationsService" name="ShuttleNotifications" url-pattern="/Notifications"/>
+    <endpoint implementation="com.nellarmonia.shuttle.service.ShuttleAdminService" name="ShuttleAdministration" url-pattern="/Administration" enable-mtom="${JAXWS_ENABLE_MTOM}"/>
+    <endpoint implementation="com.nellarmonia.shuttle.service.ShuttleAuthenticationService" name="ShuttleAuthentication" url-pattern="/Authentication" enable-mtom="${JAXWS_ENABLE_MTOM}"/>
+    <endpoint implementation="com.nellarmonia.shuttle.service.ShuttleUpdateService" name="ShuttleUpdate" url-pattern="/Update" enable-mtom="${JAXWS_ENABLE_MTOM}"/>
+</endpoints>

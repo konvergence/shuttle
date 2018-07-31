@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+<com.izforge.izpack.panels.htmlinfo.HTMLInfoPanel id="info"/>
+<com.izforge.izpack.panels.target.TargetPanel id="TargetPanel_1">
+<installpath>${DATA_FOLDER}/shuttle/home</installpath>
+</com.izforge.izpack.panels.target.TargetPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="user_WebAppConfig">
+<entry key="webapp.path" value="${WEBAPP_NAME}.WebService"/>
+<entry key="webapp.updater.path" value="${WEBAPP_NAME}.Updater"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="user_DefaultConnectionConfig">
+<entry key="client.ssotype" value="${SSO_TYPE}"/>
+<entry key="client.relative" value="true"/>
+<entry key="client.port" value="${EXTERNAL_URL_PORT}"/>
+<entry key="client.usesso" value="${SSO_ENABLE}"/>
+<entry key="client.host" value="${EXTERNAL_URL_SERVER}"/>
+<entry key="client.usessl" value="${CLIENT_USESSL}"/>
+<entry key="client.alias" value="${DEFAULT_CONNEXION_NAME}"/>
+<entry key="client.useproxy" value="${PROXY_ENABLE}"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.shuttle.panel.ProxyPanel id="proxyPanel">
+<entry key="client.useproxy" value="${PROXY_ENABLE}"/>
+<entry key="client.proxyusedefaultconfiguration" value="${PROXY_USE_DEFAULT_CONFIG}"/>
+<entry key="client.proxyhost" value="${PROXY_HOST}"/>
+<entry key="client.proxyport" value="${PROXY_PORT}"/>
+<entry key="client.proxyusecredentials" value="${PROXY_USE_CREDENTIALS}"/>
+<entry key="client.proxyuseshuttlecredentials" value="${PROXY_USE_SHUTTLE_CREDENTIALS}"/>
+<entry key="client.proxylogin" value="${PROXY_USER}"/>
+<entry key="client.proxypassword" value="${PROXY_PASSWORD}"/>
+</com.shuttle.panel.ProxyPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="user_UpdaterConfig">
+<entry key="UPLOAD_PORT" value="${EXTERNAL_URL_PORT}"/>
+<entry key="UPLOAD_RELATIVE" value="true"/>
+<entry key="UPLOAD_PROTOCOL" value="${EXTERNAL_URL_PROTOCOL}"/>
+<entry key="UPLOAD_HOST" value="${EXTERNAL_URL_SERVER}"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.install.InstallPanel id="InstallPanel_11"/>
+<com.izforge.izpack.panels.process.ProcessPanel id="ProcessPanel_12"/>
+<com.izforge.izpack.panels.finish.FinishPanel id="FinishPanel_13"/>
+</AutomatedInstallation>
