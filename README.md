@@ -4,11 +4,43 @@ Shuttle Docker project
 ## Docker example with scientific linux
 
 
+##  Shuttle 4.9.0 released August 2018
+
+### What's new
+
+#### General
+        SAML :
+            Multi-Provider Support SAML Multiple Identity Providers (IdP) are supported. Users are prompted to make their choice before authenticating.
+        Server Performance : 
+            The performance of operations (creating, updating, and deleting values) on cell texts and comments has been improved.
+            The performance of the Clean Texts and Comments task has been highly optimized. Based on the usage frequency of texts or comments, it is recommended to run this task on a weekly or daily schedule.
+            Various performance improvements have been made on cubes with large amounts of data or text: processing, transaction and caching have been optimized for large volumes of data or text.
+
+        Auditing :
+            User auditing on successful logging now explicitly lists all repositories the user can access along with the corresponding authentication source. This allows tracking precisely who has access to what on a session basis.
+
+#### Shuttle Studio
+            Improved performance of datamart and repository operations.
+            The performance of clear and delete operations has been improved. The operations are highly optimized to handle large volumes of data and text.
+
+#### Shuttle Client
+        Improved management of authentication credentials (outside of Shuttle credentials).
+        Users are always prompted to enter Proxy authentication credentials which are persistent as part of connection parameters if the 'Use proxy credentials' option is set.
+        Users are always prompted to enter Server authentication credentials which are stored in cache if user selects the Remember me option.
+        Users can use the Clear Cache option to flush cached credentials.
+        Improved sharing of connections, applications, and tabs In addition to sharing
+        links to tabs via the clipboard or email, users can now share links to applications.
+        Users can now also share connections to Shuttle servers via the clipboard or email. This can be used to distribute new connections to users.
+        New connections are automatically added to the list of connections or updated. Clearing the cache doesn't clear the connection.
+       Improved caching of images on cells with value types with images
+
+
+
 ## Shuttle 4.8.1 released at April 2018
 
 ### What's New ?
 
-### General
+#### General
 - Improved performance when processing large volumes of data.
 - Added support for SAML HTTP-Redirect binding mode.
 #### Shuttle Client
